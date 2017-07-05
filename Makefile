@@ -1,6 +1,6 @@
-all:
+all: setup
 
-run: prepare
+run: setup
 	uwsgi --ini ${PWD}/`basename ${PWD}`.ini --pidfile uwsgi.pid &
 	nginx
 
@@ -8,7 +8,7 @@ stop:
 	kill -9 `cat uwsgi.pid` && rm uwsgi.pid
 	nginx -s stop
 
-prepare: virtualenv log
+setup: virtualenv log
 	./setup.sh
 
 virtualenv:

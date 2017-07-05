@@ -1,3 +1,5 @@
+Set up a python web application by running `make`.
+
 # Dependencies
 
     python3
@@ -6,7 +8,9 @@
 
 # Setup
 
-To run a site on `nginx`, one needs to link a site configuration in the appropriate directory.
+To run a site on `nginx`, one needs to link a site configuration to the appropriate directory.
+
+Since every distribution has its own default configuration, this is only a hint to where the right place might be. Please find and check your `nginx.conf` for a line such as `include sites-enabled/*;`.
 
 ## Linux
 
@@ -24,10 +28,6 @@ Have your root password ready to update `/etc/hosts`.
 
     make run
     make stop
-
-Make will install the app in a virtual environment that has the dependencies listed in `requirements.txt`.
-
-In the current configuration, `uwsgi` watches the working directory, so changing the sources will reload the app.
 
 You can test the result with
 
